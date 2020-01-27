@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Actions as UserActions } from "../store/ducks/users";
+import { Actions as UserActions } from "../../store/ducks/users";
 
 class Login extends Component {
   componentDidMount() {
-    const { loginRequest } = this.props;
-    loginRequest();
+    // const { loginRequest } = this.props;
+    // loginRequest();
   }
 
   render() {
