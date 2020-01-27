@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import api from "./services/api";
+
+class App extends Component {
+  componentDidMount() {
+    this.login();
+  }
+
+  async login() {
+    const user = await api.get("/users");
+    console.log("====================================");
+    console.log(user);
+    console.log("====================================");
+  }
+
+  render() {
+    return <h1>IP Weather</h1>;
+  }
 }
 
 export default App;
