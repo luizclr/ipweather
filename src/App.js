@@ -1,22 +1,18 @@
 import React, { Component } from "react";
+import { Provider } from "react-redux";
+import store from "./store";
+
 import "./App.css";
 
-import api from "./services/api";
+import Login from "./pages/login";
 
 class App extends Component {
-  componentDidMount() {
-    this.login();
-  }
-
-  async login() {
-    const user = await api.get("/users");
-    console.log("====================================");
-    console.log(user);
-    console.log("====================================");
-  }
-
   render() {
-    return <h1>IP Weather</h1>;
+    return (
+      <Provider store={store}>
+        <Login />
+      </Provider>
+    );
   }
 }
 
