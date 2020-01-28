@@ -1,0 +1,114 @@
+@import "../base/index.scss";
+
+.login {
+  height: 100%;
+  background-image: linear-gradient($blue-light, $blue-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 0 $font-size-base;
+
+  .card {
+    height: auto;
+    width: 300px;
+    -webkit-box-shadow: 0px 0px 23px 0px $shadow-color;
+    -moz-box-shadow: 0px 0px 23px 0px $shadow-color;
+    box-shadow: 0px 0px 23px 0px $shadow-color;
+    background: $white;
+    border-radius: $border-radius-2;
+    padding: $font-size-base;
+    z-index: 2;
+
+    @media screen and (max-width: $grid-width-sm) {
+      width: 100%;
+    }
+
+    h1 {
+      color: $blue-dark;
+      margin-bottom: $font-size-base;
+    }
+
+    .input {
+      height: 20px;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      height: 40px;
+      border-radius: $border-radius-1;
+      border: 1px solid $gray-lighter;
+    }
+
+    .btn {
+      background: $orange;
+      width: 100%;
+      border-radius: $border-radius-2;
+      border: none;
+      height: 40px;
+      color: $white;
+      transition: 0.2s;
+      font-weight: bold;
+
+      &:hover {
+        transition: 0.2s;
+        background: $orange-dark;
+      }
+    }
+  }
+
+  #sun,
+  #moon {
+    position: relative;
+    z-index: 1;
+
+    @media screen and (max-width: $grid-width-sm) {
+      position: fixed;
+    }
+  }
+
+  #sun {
+    animation: sun infinite 20s linear;
+    left: -150px;
+    top: 40px;
+    height: 100px;
+
+    @media screen and (max-width: $grid-width-sm) {
+      left: 20px;
+      top: inherit;
+      margin-top: -80px;
+    }
+  }
+
+  #moon {
+    animation: moon infinite 20s linear;
+    right: -160px;
+    bottom: 20px;
+    height: 80px;
+
+    @media screen and (max-width: $grid-width-sm) {
+      right: 20px;
+      bottom: inherit;
+      margin-top: -10px;
+      z-index: 1;
+    }
+  }
+}
+
+@keyframes sun {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
