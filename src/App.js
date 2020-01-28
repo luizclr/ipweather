@@ -1,19 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import store from "./store";
 
-import "./App.css";
+import Routes from "./routes";
 
-import Login from "./pages/login";
-
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Login />
-      </Provider>
-    );
-  }
-}
+const App = () => (
+  <BrowserRouter>
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  </BrowserRouter>
+);
 
 export default App;
