@@ -5,7 +5,7 @@ import { isAuthenticated } from "../../utils";
 import sun from "../../assets/images/sun.svg";
 import moon from "../../assets/images/moon.svg";
 
-import "../../styles/pages/index.scss";
+import "../../styles/pages/login/index.scss";
 
 class Login extends Component {
   componentDidMount() {

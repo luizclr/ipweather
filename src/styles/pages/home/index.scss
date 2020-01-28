@@ -1,0 +1,14 @@
+@import "../../base/index.scss";
+
+.home {
+  height: 100%;
+  display: flex;
+
+  .home-container {
+    width: 50%;
+  }
+
+  .info {
+    background-color: $gray-lightest;
+  }
+}
