@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import Geolocation from "../../components/geolocation";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import { Actions as GeolocationActions } from "../../store/ducks/geolocation";
 import { Actions as TimezoneActions } from "../../store/ducks/timezone";
+
+import Geolocation from "../../components/geolocation";
+import Timezone from "../../components/timezone";
 
 import "../../styles/pages/home/index.scss";
 
@@ -23,8 +25,8 @@ class Home extends Component {
           <h1>Map</h1>
         </div>
         <div className="home-container info">
-          <Geolocation data={geolocation.data} />
-          <Geolocation data={geolocation.data} />
+          {/* <Geolocation data={geolocation.data} /> */}
+          <Timezone data={timezone.data} />
         </div>
       </div>
     );
