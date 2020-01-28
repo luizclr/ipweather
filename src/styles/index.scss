@@ -1,0 +1,19 @@
+@import "base/index";
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: $font-family-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
