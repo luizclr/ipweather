@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { Actions as UserActions } from "../../store/ducks/users";
+import authApi from "../../services/authApi";
+import { isAuthenticated } from "../../utils";
 
 import sun from "../../assets/images/sun.svg";
 import moon from "../../assets/images/moon.svg";
@@ -10,11 +9,32 @@ import "../../styles/pages/index.scss";
 
 class Login extends Component {
   componentDidMount() {
-    // const { loginRequest } = this.props;
-    // loginRequest();
+    if (isAuthenticated()) this.props.history.push("/home");
+  }
+
+  state = {
+    loading: false,
+    data: [],
+    error: null
+  };
+
+  async handleClick() {
+    this.setState({ loading: true });
+    try {
+      const response = await authApi.get("/users");
+      localStorage.setItem("token", response.data[0].auth.token);
+      this.props.history.push("/home");
+    } catch (error) {
+      this.setState({
+        loading: true,
+        error: "Erro"
+      });
+    }
   }
 
   render() {
+    const { loginRequest } = this.props;
+
     return (
       <div className="login">
         <div>
@@ -23,7 +43,11 @@ class Login extends Component {
             <h1>IP Weather</h1>
             <input type="email" placeholder="e-mail" className="input" />
             <input type="password" placeholder="password" className="input" />
-            <button type="submit" className="btn">
+            <button
+              type="button"
+              className="btn"
+              onClick={() => this.handleClick(loginRequest)}
+            >
               LOGIN
             </button>
           </form>
@@ -34,7 +58,4 @@ class Login extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(UserActions, dispatch);
-
-export default connect(() => ({}), mapDispatchToProps)(Login);
+export default Login;
