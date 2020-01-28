@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   loading: false,
-  data: [],
+  data: undefined,
   error: null
 };
 

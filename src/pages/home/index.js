@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Info from "../../components/info";
+import Geolocation from "../../components/geolocation";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -14,13 +14,15 @@ class Home extends Component {
   }
 
   render() {
+    const { geolocation } = this.props;
+
     return (
       <div className="home">
         <div className="home-container">
           <h1>Map</h1>
         </div>
-        <div className="home-container">
-          <Info />
+        <div className="home-container info">
+          <Geolocation data={geolocation.data} />
         </div>
       </div>
     );
