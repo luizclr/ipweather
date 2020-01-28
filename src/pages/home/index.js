@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
+import { Actions as AtronomyActions } from "../../store/ducks/astronomy";
 import { Actions as GeolocationActions } from "../../store/ducks/geolocation";
 import { Actions as TimezoneActions } from "../../store/ducks/timezone";
 
+import Astronomy from "../../components/astronomy";
 import Geolocation from "../../components/geolocation";
 import Timezone from "../../components/timezone";
 
@@ -17,7 +19,7 @@ class Home extends Component {
   }
 
   render() {
-    const { geolocation, timezone } = this.props;
+    const { geolocation, timezone, astronomy } = this.props;
 
     return (
       <div className="home">
@@ -26,7 +28,8 @@ class Home extends Component {
         </div>
         <div className="home-container info">
           {/* <Geolocation data={geolocation.data} /> */}
-          <Timezone data={timezone.data} />
+          {/* <Timezone data={timezone.data} /> */}
+          <Astronomy data={timezone.data} />
         </div>
       </div>
     );
@@ -35,10 +38,18 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
   geolocation: state.geolocation,
-  timezone: state.timezone
+  timezone: state.timezone,
+  astronomy: state.astronomy
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ ...GeolocationActions, ...TimezoneActions }, dispatch);
+  bindActionCreators(
+    {
+      ...AtronomyActions,
+      ...GeolocationActions,
+      ...TimezoneActions
+    },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

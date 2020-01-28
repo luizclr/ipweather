@@ -1,0 +1,58 @@
+@import "../../base/index";
+
+.astronomy {
+  height: 100%;
+  padding: $font-size-base;
+  color: $blue-dark;
+  overflow-y: auto;
+
+  h1 {
+    margin-bottom: $font-size-base;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+
+    .card-container-100 {
+      width: 100%;
+    }
+
+    .card {
+      padding: $font-size-base;
+      margin-bottom: $font-size-base;
+      background-color: $white;
+      -webkit-box-shadow: 0px 0px 6px 0px $gray-lighter;
+      -moz-box-shadow: 0px 0px 6px 0px $gray-lighter;
+      box-shadow: 0px 0px 6px 0px $gray-lighter;
+    }
+
+    .astronomy-card {
+      background-image: url("../../../assets/images/world.svg");
+      background-repeat: no-repeat;
+      background-position: -20px -40px;
+      background-size: 100px;
+      border-radius: $border-radius-2;
+      width: 100%;
+
+      h2 {
+        text-align: right;
+        margin-bottom: $font-size-base;
+      }
+
+      p {
+        display: inline-grid;
+        margin-right: $font-size-base * 3;
+        margin-bottom: $font-size-base;
+        font-size: $font-size-base * 1.5;
+        word-break: break-all;
+
+        span {
+          font-size: $font-size-base;
+          font-weight: lighter;
+        }
+      }
+    }
+  }
+}
