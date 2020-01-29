@@ -9,6 +9,23 @@
   }
 
   .info {
+    overflow-y: auto;
     background-color: $gray-lightest;
+
+    ul {
+      list-style: none;
+      margin-top: $font-size-base;
+      margin-left: $font-size-base;
+
+      li {
+        display: inline;
+        margin: 0 $font-size-base / 2;
+        font-size: $font-size-base * 1.5;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
   }
 }

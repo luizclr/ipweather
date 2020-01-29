@@ -4,7 +4,6 @@ import "../../styles/components/astronomy/index.scss";
 
 const Astronomy = ({ data }) => (
   <div className="astronomy">
-    <h1>Astronomy</h1>
     {data !== undefined ? (
       <div className="container">
         <div className="card-container-100">

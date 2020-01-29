@@ -4,7 +4,6 @@ import "../../styles/components/timezone/index.scss";
 
 const Timezone = ({ data }) => (
   <div className="timezone">
-    <h1>Timezone</h1>
     {data !== undefined ? (
       <div className="container">
         <div className="card-container-100">
