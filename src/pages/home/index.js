@@ -12,6 +12,8 @@ import Timezone from "../../components/timezone";
 
 import "../../styles/pages/home/index.scss";
 
+import Maps from "../../components/map";
+
 class Home extends Component {
   state = {
     currentPage: "GEOLOCATION"
@@ -47,7 +49,16 @@ class Home extends Component {
     return (
       <div className="home">
         <div className="home-container">
-          <h1>Map</h1>
+          <Maps
+            marker={
+              geolocation.data !== undefined
+                ? {
+                    lat: geolocation.data.latitude,
+                    lng: geolocation.data.longitude
+                  }
+                : {}
+            }
+          />
         </div>
         <div className="home-container info">
           <ul>
