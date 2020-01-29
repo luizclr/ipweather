@@ -42,6 +42,11 @@ class Home extends Component {
     this.setState({ currentPage: pageName });
   }
 
+  logout() {
+    localStorage.clear();
+    this.props.history.push("/");
+  }
+
   render() {
     const { geolocation, timezone, astronomy } = this.props;
     const { currentPage } = this.state;
@@ -65,6 +70,7 @@ class Home extends Component {
             <li onClick={() => this.openPage("GEOLOCATION")}>Geolocation</li>
             <li onClick={() => this.openPage("TIMEZONE")}>Timezone</li>
             <li onClick={() => this.openPage("ASTRONOMY")}>Astronomy</li>
+            <li onClick={() => this.logout()}>sair</li>
           </ul>
 
           {currentPage === "GEOLOCATION" ? (
