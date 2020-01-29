@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { Actions as AtronomyActions } from "../../store/ducks/astronomy";
+import { Actions as AstronomyActions } from "../../store/ducks/astronomy";
 import { Actions as GeolocationActions } from "../../store/ducks/geolocation";
 import { Actions as TimezoneActions } from "../../store/ducks/timezone";
 
@@ -14,8 +14,13 @@ import "../../styles/pages/home/index.scss";
 
 class Home extends Component {
   componentDidMount() {
-    const { geolocationRequest, timezoneRequest } = this.props;
-    timezoneRequest();
+    const {
+      geolocationRequest,
+      timezoneRequest,
+      astronomyRequest
+    } = this.props;
+
+    astronomyRequest();
   }
 
   render() {
@@ -29,7 +34,7 @@ class Home extends Component {
         <div className="home-container info">
           {/* <Geolocation data={geolocation.data} /> */}
           {/* <Timezone data={timezone.data} /> */}
-          <Astronomy data={timezone.data} />
+          <Astronomy data={astronomy.data} />
         </div>
       </div>
     );
@@ -45,7 +50,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      ...AtronomyActions,
+      ...AstronomyActions,
       ...GeolocationActions,
       ...TimezoneActions
     },

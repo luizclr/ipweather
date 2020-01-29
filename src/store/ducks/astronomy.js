@@ -39,16 +39,16 @@ export default function astronomy(state = INITIAL_STATE, action) {
  */
 export const Actions = {
   astronomyRequest: () => ({
-    type: Types._REQUEST
+    type: Types.ASTRONOMY_REQUEST
   }),
 
   astronomySuccess: data => ({
-    type: Types._SUCCESS,
+    type: Types.ASTRONOMY_SUCCESS,
     payload: { data }
   }),
 
   astronomyFailure: error => ({
-    type: Types._FAILURE,
+    type: Types.ASTRONOMY_FAILURE,
     payload: { error }
   })
 };

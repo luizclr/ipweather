@@ -5,7 +5,7 @@ import { Actions as astronomyActions } from "../ducks/astronomy";
 
 export function* astronomy(action) {
   try {
-    const response = yield call(mainApi.get, "/ipgeo");
+    const response = yield call(mainApi.get, "/astronomy");
 
     const data = response.data;
     yield put(astronomyActions.astronomySuccess(data));
