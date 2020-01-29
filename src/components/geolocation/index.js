@@ -4,7 +4,6 @@ import "../../styles/components/geolocation/index.scss";
 
 const Geolocation = ({ data }) => (
   <div className="geolocation">
-    <h1>Geolocation</h1>
     {data !== undefined ? (
       <div className="container">
         <div className="card-container-100">

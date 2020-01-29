@@ -1,6 +1,6 @@
 @import "../../base/index";
 
-.timezone {
+.astronomy {
   height: 100%;
   padding: $font-size-base;
   color: $blue-dark;
@@ -27,8 +27,8 @@
       box-shadow: 0px 0px 6px 0px $gray-lighter;
     }
 
-    .timezone-card {
-      background-image: url("../../../assets/images/clock.svg");
+    .astronomy-card {
+      background-image: url("../../../assets/images/world.svg");
       background-repeat: no-repeat;
       background-position: -20px -40px;
       background-size: 100px;
