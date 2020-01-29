@@ -12,6 +12,8 @@ import Timezone from "../../components/timezone";
 
 import "../../styles/pages/home/index.scss";
 
+import Maps from "../../components/map";
+
 class Home extends Component {
   state = {
     currentPage: "GEOLOCATION"
@@ -40,6 +42,11 @@ class Home extends Component {
     this.setState({ currentPage: pageName });
   }
 
+  logout() {
+    localStorage.clear();
+    this.props.history.push("/");
+  }
+
   render() {
     const { geolocation, timezone, astronomy } = this.props;
     const { currentPage } = this.state;
@@ -47,13 +54,23 @@ class Home extends Component {
     return (
       <div className="home">
         <div className="home-container">
-          <h1>Map</h1>
+          <Maps
+            marker={
+              geolocation.data !== undefined
+                ? {
+                    lat: geolocation.data.latitude,
+                    lng: geolocation.data.longitude
+                  }
+                : {}
+            }
+          />
         </div>
         <div className="home-container info">
           <ul>
             <li onClick={() => this.openPage("GEOLOCATION")}>Geolocation</li>
             <li onClick={() => this.openPage("TIMEZONE")}>Timezone</li>
             <li onClick={() => this.openPage("ASTRONOMY")}>Astronomy</li>
+            <li onClick={() => this.logout()}>sair</li>
           </ul>
 
           {currentPage === "GEOLOCATION" ? (
