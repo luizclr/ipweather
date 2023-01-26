@@ -1,6 +1,6 @@
 <h1 align="center">
-  <a href="https://ipweather.herokuapp.com/">
-    IP Weather
+  <a href="https://ipweather.netlify.app">
+    ipweather.netlify.app/
   </a>
 </h1>
 

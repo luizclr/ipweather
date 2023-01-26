@@ -15,19 +15,19 @@ class Login extends Component {
   state = {
     loading: false,
     data: [],
-    error: null
+    error: null,
   };
 
   async handleClick() {
     this.setState({ loading: true });
     try {
-      const response = await authApi.get("/users");
-      localStorage.setItem("token", response.data[0].auth.token);
+      const response = await authApi.get("/auth");
+      localStorage.setItem("token", response.data.token);
       this.props.history.push("/home");
     } catch (error) {
       this.setState({
         loading: true,
-        error: "Erro"
+        error: "Erro",
       });
     }
   }
